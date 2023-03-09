@@ -1,4 +1,4 @@
-# Hardhat Tutorial
+# Hardhat AMM
 
 This project demonstrates how to compile, deploy and call smart contracts on Core TestNet using HardHat.
 
