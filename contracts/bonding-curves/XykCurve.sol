@@ -3,12 +3,7 @@ pragma solidity ^0.8.0;
 
 import {ICurve} from "./ICurve.sol";
 import {CurveErrorCodes} from "./CurveErrorCodes.sol";
-import {FixedPointMathLib} from "solmate/utils/FixedPointMathLib.sol";
-import {LSSVMPair} from "../LSSVMPair.sol";
-import {IERC721} from "@openzeppelin/contracts/token/ERC721/IERC721.sol";
-import {LSSVMPairCloner} from "../lib/LSSVMPairCloner.sol";
-import {LSSVMPairERC20} from "../LSSVMPairERC20.sol";
-import {ILSSVMPairFactoryLike} from "../LSSVMPairFactory.sol";
+import {FixedPointMathLib} from "solmate/src/utils/FixedPointMathLib.sol";
 
 /*
     @author 0xacedia
@@ -84,11 +79,11 @@ contract XykCurve is ICurve, CurveErrorCodes {
             (nftBalance - numItems);
 
         // add the fees to the amount to send in
-        protocolFee = inputValueWithoutFee.fmul(
+        protocolFee = inputValueWithoutFee.mulDivDown(
             protocolFeeMultiplier,
             FixedPointMathLib.WAD
         );
-        uint256 fee = inputValueWithoutFee.fmul(
+        uint256 fee = inputValueWithoutFee.mulDivDown(
             feeMultiplier,
             FixedPointMathLib.WAD
         );
@@ -136,11 +131,11 @@ contract XykCurve is ICurve, CurveErrorCodes {
             (nftBalance + numItems);
 
         // subtract fees from amount to send out
-        protocolFee = outputValueWithoutFee.fmul(
+        protocolFee = outputValueWithoutFee.mulDivDown(
             protocolFeeMultiplier,
             FixedPointMathLib.WAD
         );
-        uint256 fee = outputValueWithoutFee.fmul(
+        uint256 fee = outputValueWithoutFee.mulDivDown(
             feeMultiplier,
             FixedPointMathLib.WAD
         );

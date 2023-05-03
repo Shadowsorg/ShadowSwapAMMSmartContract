@@ -15,7 +15,7 @@ pragma solidity ^0.8.0;
 */
 
 import {IERC2981} from "@openzeppelin/contracts/interfaces/IERC2981.sol";
-import {IRoyaltyRegistry} from "manifoldxyz/IRoyaltyRegistry.sol";
+import {IRoyaltyRegistry} from "@manifoldxyz/royalty-registry-solidity/contracts/IRoyaltyRegistry.sol";
 import {LSSVMRouter, IERC721, ERC20, SafeTransferLib, LSSVMPair, ILSSVMPairFactoryLike, CurveErrorCodes} from "./LSSVMRouter.sol";
 import {LSSVMPairERC20} from "./LSSVMPairERC20.sol";
 
